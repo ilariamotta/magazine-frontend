@@ -11,11 +11,12 @@ import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import AuthorCard from './components/AuthorCard.jsx'
 import ArticleCard from './components/ArticleCard.jsx'
+import CategoryCard from './components/CategoryCard.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Header />
-    <AuthorCard />
+   <CategoryCard />
     <App />
     <Footer/>
   </StrictMode>,
