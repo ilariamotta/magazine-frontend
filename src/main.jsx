@@ -9,10 +9,12 @@ import './index.css'
 import App from './App.jsx'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
+import AuthorCard from './components/AuthorCard.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Header />
+    <AuthorCard />
     <App />
     <Footer/>
   </StrictMode>,
