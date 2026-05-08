@@ -10,6 +10,7 @@ import App from './App.jsx'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import AuthorCard from './components/AuthorCard.jsx'
+import ArticleCard from './components/ArticleCard.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
