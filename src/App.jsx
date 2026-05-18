@@ -1,11 +1,13 @@
-
+import Header from './components/Header'
+import Footer from './components/Footer'
+import HomePage from './pages/HomePage'
 
 function App() {
-  
-
   return (
     <>
-        <div className="min-vh-100">Sono home</div>
+      <Header />
+      <HomePage />
+      <Footer />
     </>
   )
 }

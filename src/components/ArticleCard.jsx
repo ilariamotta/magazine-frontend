@@ -1,28 +1,31 @@
-export default function ArticleCard() {
+export default function ArticleCard({ article }) {
+  const API_URL = import.meta.env.VITE_API_URL;
+  const firstCategory = article.categories?.[0];
+
+  const coverImageUrl = article.cover_image ? `${API_URL}/storage/${article.cover_image}` : "/article-placeholder.png";
+
+  const formattedDate = new Date(article.published_at).toLocaleDateString("it-IT", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+
   return (
-    <article className="pixel-card h-100 d-flex flex-column">
-      <div className="ratio ratio-1x1 bg-warning border-bottom border-2 border-dark">
-        <img src="/article-placeholder.png" alt="Titolo articolo" className="pixel-card-img"/>
+    <article className="pixel-card article-card h-100 d-flex flex-column">
+      <div className="article-card-img-box">
+        <span className="pixel-badge article-card-badge" style={{
+            backgroundColor: firstCategory?.color || "var(--neon-pink)",
+          }}>{firstCategory?.name || "Categoria"}</span>
+        <img src={coverImageUrl} alt={article.title} className="pixel-card-img"/>
       </div>
-      <div className="p-3 d-flex flex-column flex-grow-1">
-        <span className="pixel-badge mb-3 align-self-start">
-          Nome categoria
-        </span>
-        <h3 className="pixel-title fs-4 mb-2">
-          Titolo dell’articolo
-        </h3>
-        <p className="pixel-text mb-4">
-          Sottotitolo dell'articolo
-        </p>
-        <div className="mt-auto d-flex justify-content-between align-items-center gap-3">
-          <span className="pixel-text fw-bold">
-            Data
-          </span>
-          <a href="/articoli/titolo-articolo" className="pixel-btn">
+      <div className="article-card-body d-flex flex-column flex-grow-1">
+        <h5 className="pixel-title article-card-title">{article.title}</h5>
+        <div className="article-card-meta mt-auto"><span>{formattedDate}</span>
+          <a href={`/articles/${article.id}`} className="pixel-btn article-card-link">
             Leggi
           </a>
         </div>
       </div>
     </article>
-  )
+  );
 }
