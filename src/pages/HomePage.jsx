@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ArticleCard from "../components/ArticleCard";
 import CategoryCard from "../components/CategoryCard";
 import AuthorCard from "../components/AuthorCard";
+import Hero from "../components/Hero";
 
 
 export default function HomePage() {
@@ -19,6 +20,7 @@ export default function HomePage() {
 return (
         <>
         <div className="container">
+        <Hero />
             {/* HERO */}
             {/* NOTIZIA EVENTO */}
             <section>
