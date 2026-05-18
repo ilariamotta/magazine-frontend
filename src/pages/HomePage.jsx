@@ -17,29 +17,41 @@ export default function HomePage() {
   useEffect(()=> {axios.get(`${API_URL}/api/categories`).then((response)=>{setCategories(response.data.data);}).catch((error)=>{console.error(error);});}, [API_URL]);
   useEffect(() =>{axios.get(`${API_URL}/api/authors`).then((response)=> {setAuthors(response.data.data);}).catch((error)=>{console.error(error);});}, [API_URL]);
 
+  const firstEventArticle = articles.find((article) => article.categories?.some((category) => category.slug === "eventi"));
+  const latestArticles = articles.filter((article) => article.id !== firstEventArticle?.id);
 return (
         <>
         <div className="container">
-        <Hero />
             {/* HERO */}
+        <Hero />
+            {/*  FINE HERO */}
             {/* NOTIZIA EVENTO */}
-            <section>
-                <div className="row">
-                    <div className="col-12">
-                        NOTIZIA EVENTO
-                    </div>
+            {firstEventArticle && (
+            <section className="mt-5" style={{ padding: "30px", border: "3px solid var(--text-main)", boxShadow: "10px 10px 0 var(--text-main)"}}>
+                <div className="row g-4 align-items-center">
+                <div className="col-12 col-lg-5">
+                    <span className="mb-3 bg-black text-light" style={{ padding: "0.25rem 0.6rem", border: "2px solid var(--border-dark)", fontFamily: "2px solid var(--border-dark)"}}>
+                        In evidenza</span>
+                    <h1 className="pixel-title pt-4">{firstEventArticle.title}</h1>
+                    <p className="pixel-text">{firstEventArticle.subtitle}</p>
+                    <a href={`/articles/${firstEventArticle.id}`} className="pixel-btn">Leggi l’articolo</a>
+                </div>
+                <div className="col-12 col-lg-7">
+                    <img src={`${API_URL}/storage/${firstEventArticle.cover_image}`} alt={firstEventArticle.title}className="w-100"/>
+                </div>
                 </div>
             </section>
-                {/* FINE NOTIZIA EVENTO */}
+            )}
+            {/* FINE NOTIZIA EVENTO */}
             {/* ARTICOLI RECENTI */}
-            <section>
+            <section className="mt-5">
                 <div className="d-flex justify-content-between align-items-center">
                 <h1 className="pb-2">Notizie recenti</h1>
-                <a href="">Vedi tutti gli articoli ►</a>
+                <a href="" className="pixel-link">Vedi tutti gli articoli ►</a>
                 </div>
  
              <div className="row row-cols-1 row-cols-sm-1 row-cols-lg-5 g-4">
-                {articles.slice(0, 5).map((article) => (
+                {latestArticles.slice(0, 5).map((article) => (
                  <div key={article.id} className="col">
                     <ArticleCard article={article} />
                      </div>
@@ -66,7 +78,7 @@ return (
             <section className="pt-5">
                      <div className="d-flex justify-content-between align-items-center">
                 <h2 className="pb-2">Scopri le nostre firme</h2>
-                <a href="">Vedi tutti gli autori ►</a>
+                <a className="pixel-link" href="">Vedi tutti gli autori ►</a>
                 </div>
                 <div className="row row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-2">
                 {authors.map((author)=>

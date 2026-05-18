@@ -66,17 +66,24 @@ h6,
 }
 
 .pixel-link:hover {
-  transform: rotate(15deg);
+  transform: rotate(3deg);
   color: var(--neon-pink) !important;
 }
 
 /* HERO */
+.hero-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
 .hero-pixel {
-  object-position: center;
+  width: 100%;
+  /* max-width: 720px; */
+  height: auto;
   border: 2px solid var(--text-main);
   box-shadow: 10px 10px 0 var(--text-main);
   display: block;
-
 }
 
 
@@ -230,7 +237,7 @@ h6,
 .article-card-badge {
   position: absolute;
   border: 2px solid var(--border-dark);
-  font-family: var(--font-pixel);
+  font-family: 2px solid var(--border-dark);
   font-size: 0.9rem;
   letter-spacing: 0.05em;
   padding: 0.25rem 0.6rem;
