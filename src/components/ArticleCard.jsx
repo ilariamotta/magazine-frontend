@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ArticleCard({ article }) {
   const API_URL = import.meta.env.VITE_API_URL;
   const firstCategory = article.categories?.[0];
@@ -21,9 +23,7 @@ export default function ArticleCard({ article }) {
       <div className="article-card-body d-flex flex-column flex-grow-1">
         <h5 className="pixel-title article-card-title">{article.title}</h5>
         <div className="article-card-meta mt-auto"><span>{formattedDate}</span>
-          <a href={`/articles/${article.id}`} className="pixel-btn article-card-link">
-            Leggi
-          </a>
+          <Link to={`/articles/${article.id}`} className="pixel-btn article-card-link">Leggi</Link>
         </div>
       </div>
     </article>

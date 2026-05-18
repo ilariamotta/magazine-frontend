@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ArticleCard from "../components/ArticleCard";
 import CategoryCard from "../components/CategoryCard";
@@ -47,7 +48,7 @@ return (
             <section className="mt-5">
                 <div className="d-flex justify-content-between align-items-center">
                 <h1 className="pb-2">Notizie recenti</h1>
-                <a href="" className="pixel-link">Vedi tutti gli articoli ►</a>
+                <Link to={`/articles`} className="pixel-link">Leggi tutti gli articoli ►</Link>
                 </div>
  
              <div className="row row-cols-1 row-cols-sm-1 row-cols-lg-5 g-4">
@@ -64,7 +65,7 @@ return (
             <section className="pt-5">
                  <div className="d-flex justify-content-between align-items-center">
                 <h2 className="pb-2">Esplora per categorie</h2>
-                <a className="pixel-link" href="">Vedi tutti gli articoli ►</a>
+                <Link to={`/categories`} className="pixel-link">Esplora tutte ►</Link>
                 </div>
                 <div className="row row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-2">
                 {categories.slice(0,4).map((category)=>
@@ -78,7 +79,7 @@ return (
             <section className="pt-5">
                      <div className="d-flex justify-content-between align-items-center">
                 <h2 className="pb-2">Scopri le nostre firme</h2>
-                <a className="pixel-link" href="">Vedi tutti gli autori ►</a>
+                <Link to={`/authors`} className="pixel-link">Vedi tutti gli autori ►</Link>
                 </div>
                 <div className="row row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-2">
                 {authors.map((author)=>

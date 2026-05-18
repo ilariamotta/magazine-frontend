@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
+
 export default function CategoryCard({category}) {
-  
   return (
     <>
     <a href="/categorie/nome-categoria" className="pixel-card category-card text-decoration-none">
@@ -9,10 +10,7 @@ export default function CategoryCard({category}) {
         <h6 className="pixel-title category-card-title">
           {category.name}
         </h6>
-        <span className="pixel-btn align-self-start">
-          Esplora
-          <i className="bi bi-arrow-right-short ms-1"></i>
-        </span>
+          <Link to={`/categories/${category.slug}`} className="pixel-btn align-self-start">Esplora <i className="bi bi-arrow-right-short ms-1"></i> </Link>
       </div>
     </a>
    </>

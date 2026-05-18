@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function AuthorCard({author}) {
   
   const API_URL = import.meta.env.VITE_API_URL;
@@ -10,9 +12,8 @@ export default function AuthorCard({author}) {
       </div>
       <div className="d-flex flex-column justify-content-center">
         <h3 className="pixel-title fs-4 mb-1">{author.name}</h3>
-        <a href="/autori/nome-autore" className="pixel-btn align-self-start">
-          Vedi profilo
-        </a>
+
+        <Link to={`/authors/${author.slug}`} className="pixel-btn align-self-start">Vedi profilo</Link>
       </div>
     </article>
   )
