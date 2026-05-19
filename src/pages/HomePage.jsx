@@ -35,7 +35,7 @@ return (
                         In evidenza</span>
                     <h1 className="pixel-title pt-4">{firstEventArticle.title}</h1>
                     <p className="pixel-text">{firstEventArticle.subtitle}</p>
-                    <a href={`/articles/${firstEventArticle.id}`} className="pixel-btn">Leggi l’articolo</a>
+                    <a href={`/articles/${firstEventArticle.slug}`} className="pixel-btn">Leggi l’articolo</a>
                 </div>
                 <div className="col-12 col-lg-7">
                     <img src={`${API_URL}/storage/${firstEventArticle.cover_image}`} alt={firstEventArticle.title}className="w-100"/>

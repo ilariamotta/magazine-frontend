@@ -70,6 +70,10 @@ h6,
   color: var(--neon-pink) !important;
 }
 
+.article-detail-categories:hover {
+  transform: rotate(-3deg);
+}
+
 /* HERO */
 .hero-wrapper {
   display: flex;
@@ -347,4 +351,31 @@ h6,
 .category-card-text {
   color: var(--text-main);
   margin: 0;
+}
+
+/* SCHEDA ARTICOLO DETTAGLIO */
+
+.article-detail-img-box {
+  border-right: 2px solid var(--border-dark);
+  box-shadow: 9px 8px 0 var(--border-dark);
+}
+
+.article-detail-content-box {
+  border-right: 2px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+  box-shadow: 9px 8px 0 var(--border-dark);
+}
+
+/* breadcrumb links */
+
+.bread-pixel {
+  text-decoration:none;
+  font-family: var(--font-pixel);
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+
+.bread-pixel:hover {
+  color: var(--neon-pink);
+  transform: rotate(3deg);
 }

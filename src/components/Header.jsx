@@ -36,7 +36,7 @@ export default function Header() {
         <div className="container d-flex align-items-center justify-content-between">         
           {/* logo */}
           <a href="/" className="ms-0">
-            <img src="./logo.png" alt="Pixel Pop" className="site-logo me-5" />
+            <img src="/logo.png" alt="Pixel Pop" className="site-logo me-5" />
           </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
