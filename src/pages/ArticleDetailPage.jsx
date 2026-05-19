@@ -36,8 +36,9 @@ export default function ArticleDetailPage() {
       {/* BREADCRUMB */}
       <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-      <Link class="breadcrumb-item bread-pixel" to="/">Home</Link>
-      <Link class="breadcrumb-item bread-pixel" to="/articles">Articoli</Link>
+      <li className="breadcrumb-item "><Link class="bread-pixel" to="/">Home</Link></li>
+      <li className="breadcrumb-item "><Link class="bread-pixel" to="/articles">Articoli</Link></li>
+      <li className="breadcrumb-item active bread-pixel" aria-current="page">{article.title}</li>
       </ol>
       </nav>
       {/* TESTATA ARTICOLO */}

@@ -379,3 +379,7 @@ h6,
   color: var(--neon-pink);
   transform: rotate(3deg);
 }
+
+.breadcrumb-item:hover {
+ transform: rotate(3deg);
+}
