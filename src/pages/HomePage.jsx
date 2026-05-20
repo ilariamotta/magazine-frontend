@@ -20,7 +20,8 @@ export default function HomePage() {
 
   const firstEventArticle = articles.find((article) => article.categories?.some((category) => category.slug === "eventi"));
   const latestArticles = articles.filter((article) => article.id !== firstEventArticle?.id);
-return (
+
+  return (
         <>
         <div className="container">
             {/* HERO */}

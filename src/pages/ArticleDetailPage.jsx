@@ -81,8 +81,8 @@ export default function ArticleDetailPage() {
           <p className="fs-5 lh-lg mb-0" style={{ whiteSpace: "pre-line" }}>{article.content}</p>
         </div>
       </section>
-      <div className="d-flex justify-content-center mt-4">
         {/* LINK TO TOP */}
+      <div className="d-flex justify-content-center mt-4">
   <button type="button" className="pixel-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Torna su ↑</button>
 </div>
     </main>
