@@ -1,4 +1,9 @@
+
+import { Link } from "react-router-dom";
+
 export default function Header() {
+ 
+
   const navLinks = [
     {
       label: 'Home',
@@ -6,23 +11,27 @@ export default function Header() {
     },
     {
       label: 'News',
-      path: '/news',
+      path: '/categories/news',
     },
     {
       label: 'Videogiochi',
-      path: '/videogiochi',
+      path: '/categories/videogiochi',
     },
     {
-      label: 'Anime & Manga',
-      path: '/animemanga',
+      label: 'Anime',
+      path: '/categories/anime',
+    },
+    {
+      label: 'Manga',
+      path: '/categories/manga',
     },
     {
       label: 'Cultura',
-      path: '/cultura',
+      path: '/categories/cultura',
     },
     {
       label: 'Recensioni',
-      path: '/recensioni',
+      path: '/categories/recensioni',
     },
     {
       label: 'Autori',
@@ -33,26 +42,28 @@ export default function Header() {
   return (
     <header className="site-header text-uppercase">
       <nav className="navbar navbar-expand-lg">
-        <div className="container d-flex align-items-center justify-content-between">         
+        <div className="container d-flex align-items-center justify-content-between">
           {/* logo */}
           <a href="/" className="ms-0">
             <img src="/logo.png" alt="Pixel Pop" className="site-logo me-5" />
           </a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-          {/* link */}
-          <div className="navbar-nav d-flex flex-row align-items-center gap-3">
-            <ul class="navbar-nav">            
-            {navLinks.map((link) => (
-              <li className="nav-item active"><a key={link.path} href={link.path} className="nav-link">
-                {link.label}
-              </a></li>
-            ))}
-            </ul>
-          </div>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            {/* link */}
+            <div className="navbar-nav d-flex flex-row align-items-center gap-3">
+              <ul class="navbar-nav">
+                  {navLinks.map((link) => (
+                <li key={link.path} className="nav-item">
+                  <Link to={link.path} className="nav-link">
+                    {link.label}
+                  </Link>
+                </li>
+                ))}
+              </ul>
             </div>
+          </div>
         </div>
       </nav>
     </header>
