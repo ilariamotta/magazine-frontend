@@ -26,16 +26,12 @@ export default function Header() {
       path: '/categories/manga',
     },
     {
-      label: 'Cultura',
-      path: '/categories/cultura',
-    },
-    {
       label: 'Recensioni',
       path: '/categories/recensioni',
     },
     {
       label: 'Autori',
-      path: '/autori',
+      path: '/authors',
     },
   ]
 
