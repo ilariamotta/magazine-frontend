@@ -29,7 +29,7 @@ export default function ArticlesPage() {
           </li>
         
           <li className="breadcrumb-item active bread-pixel" aria-current="page">
-            Tutti gli articoli
+            Articoli
           </li>
         </ol>
       </nav>
