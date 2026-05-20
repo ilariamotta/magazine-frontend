@@ -10,28 +10,24 @@ export default function Header() {
       path: '/',
     },
     {
-      label: 'News',
-      path: '/categories/news',
-    },
-    {
       label: 'Videogiochi',
-      path: '/categories/videogiochi',
+      path: '/categorie/videogiochi',
     },
     {
       label: 'Anime',
-      path: '/categories/anime',
+      path: '/categorie/anime',
     },
     {
       label: 'Manga',
-      path: '/categories/manga',
+      path: '/categorie/manga',
     },
     {
       label: 'Recensioni',
-      path: '/categories/recensioni',
+      path: '/categorie/recensioni',
     },
     {
       label: 'Autori',
-      path: '/authors',
+      path: '/autori',
     },
   ]
 

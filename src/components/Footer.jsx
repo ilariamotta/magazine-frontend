@@ -28,12 +28,12 @@ export default function Footer() {
       path: '/videogiochi',
     },
     {
-      label: 'Anime & Manga',
-      path: '/animemanga',
+      label: 'Animea',
+      path: '/anime',
     },
     {
-      label: 'Cultura',
-      path: '/cultura',
+      label: 'Manga',
+      path: '/manga',
     },
     {
       label: 'Recensioni',

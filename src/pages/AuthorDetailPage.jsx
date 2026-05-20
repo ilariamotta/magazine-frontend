@@ -41,7 +41,7 @@ export default function AuthorDetailPage() {
       <nav aria-label="breadcrumb" className="mb-4">
         <ol className="breadcrumb">
           <li className="breadcrumb-item"><Link className="bread-pixel pixel-link" to="/">Home</Link></li>
-          <li className="breadcrumb-item"><Link className="bread-pixel pixel-link" to="/authors">Autori</Link></li>
+          <li className="breadcrumb-item"><Link className="bread-pixel pixel-link" to="/autori">Autori</Link></li>
           <li className="breadcrumb-item active bread-pixel" aria-current="page">{author.name}</li>
         </ol>
       </nav>
@@ -69,7 +69,7 @@ export default function AuthorDetailPage() {
       <section>
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h2 className="pixel-title mb-0">Articoli di {author.name}</h2>
-          <Link to="/authors" className="pixel-link">Tutti gli autori ►</Link>
+          <Link to="/autori" className="pixel-link">Tutti gli autori ►</Link>
         </div>
 
         {authorArticles.length === 0 ? (

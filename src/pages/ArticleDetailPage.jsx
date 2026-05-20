@@ -37,7 +37,7 @@ export default function ArticleDetailPage() {
       <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
       <li className="breadcrumb-item "><Link class="bread-pixel" to="/">Home</Link></li>
-      <li className="breadcrumb-item "><Link class="bread-pixel" to="/articles">Articoli</Link></li>
+      <li className="breadcrumb-item "><Link class="bread-pixel" to="/articoli">Articoli</Link></li>
       <li className="breadcrumb-item active bread-pixel" aria-current="page">{article.title}</li>
       </ol>
       </nav>
@@ -49,7 +49,7 @@ export default function ArticleDetailPage() {
             <div className="h-100 d-flex flex-column justify-content-center p-4">
               <div className="d-flex flex-wrap gap-2 mb-3">
                 {article.categories?.map((category) => (
-                  <Link to={`/categories/${category.slug}`} key={category.id} className="article-detail-categories text-decoration-none px-2 py-1 border border-2 border-dark text-white" style={{ backgroundColor: category.color || "var(--neon-pink)", fontFamily: "var(--font-pixel)", }}>
+                  <Link to={`/categorie/${category.slug}`} key={category.id} className="article-detail-categories text-decoration-none px-2 py-1 border border-2 border-dark text-white" style={{ backgroundColor: category.color || "var(--neon-pink)", fontFamily: "var(--font-pixel)", }}>
                     {category.name}
                   </Link>
                 ))}
@@ -60,7 +60,7 @@ export default function ArticleDetailPage() {
                 <span>{formattedDate}</span>
                 <span>•</span>
                 {article.author?.slug && (
-          <Link to={`/authors/${article.author.slug}`} className="pixel-link">
+          <Link to={`/autori/${article.author.slug}`} className="pixel-link">
             {article.author.name}
           </Link>
         )}

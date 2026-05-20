@@ -23,7 +23,7 @@ export default function ArticleCard({ article }) {
       <div className="article-card-body d-flex flex-column flex-grow-1">
         <h5 className="pixel-title article-card-title">{article.title}</h5>
         <div className="article-card-meta mt-auto"><span>{formattedDate}</span>
-          <Link to={`/articles/${article.slug}`} className="pixel-btn article-card-link">Leggi</Link>
+          <Link to={`/articoli/${article.slug}`} className="pixel-btn article-card-link">Leggi</Link>
         </div>
       </div>
     </article>

@@ -13,7 +13,7 @@ export default function AuthorCard({author}) {
       <div className="d-flex flex-column justify-content-center">
         <h3 className="pixel-title fs-4 mb-1">{author.name}</h3>
 
-        <Link to={`/authors/${author.slug}`} className="pixel-btn align-self-start">Vedi profilo</Link>
+        <Link to={`/autori/${author.slug}`} className="pixel-btn align-self-start">Vedi profilo</Link>
       </div>
     </article>
   )

@@ -36,7 +36,7 @@ export default function HomePage() {
                         In evidenza</span>
                     <h1 className="pixel-title pt-4">{firstEventArticle.title}</h1>
                     <p className="pixel-text">{firstEventArticle.subtitle}</p>
-                    <a href={`/articles/${firstEventArticle.slug}`} className="pixel-btn">Leggi l’articolo</a>
+                    <a href={`/articoli/${firstEventArticle.slug}`} className="pixel-btn">Leggi l’articolo</a>
                 </div>
                 <div className="col-12 col-lg-7">
                     <img src={`${API_URL}/storage/${firstEventArticle.cover_image}`} alt={firstEventArticle.title}className="w-100"/>
@@ -49,7 +49,7 @@ export default function HomePage() {
             <section className="mt-5">
                 <div className="d-flex justify-content-between align-items-center">
                 <h1 className="pb-2">Notizie recenti</h1>
-                <Link to={`/articles`} className="pixel-link">Leggi tutti gli articoli ►</Link>
+                <Link to={`/articoli`} className="pixel-link">Leggi tutti gli articoli ►</Link>
                 </div>
  
              <div className="row row-cols-1 row-cols-sm-1 row-cols-lg-5 g-4">
@@ -66,7 +66,7 @@ export default function HomePage() {
             <section className="pt-5">
                  <div className="d-flex justify-content-between align-items-center">
                 <h2 className="pb-2">Esplora per categorie</h2>
-                <Link to={`/categories`} className="pixel-link">Esplora tutte ►</Link>
+                <Link to={`/categorie`} className="pixel-link">Esplora tutte ►</Link>
                 </div>
                 <div className="row row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-2">
                 {categories.slice(0,4).map((category)=>
@@ -80,7 +80,7 @@ export default function HomePage() {
             <section className="pt-5">
                      <div className="d-flex justify-content-between align-items-center">
                 <h2 className="pb-2">Scopri le nostre firme</h2>
-                <Link to={`/authors`} className="pixel-link">Vedi tutti gli autori ►</Link>
+                <Link to={`/autori`} className="pixel-link">Vedi tutti gli autori ►</Link>
                 </div>
                 <div className="row row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-2">
                 {authors.map((author)=>

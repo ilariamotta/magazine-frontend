@@ -18,12 +18,12 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/articles" element={<ArticlesPage />} />
-        <Route path="/articles/:slug" element={<ArticleDetailPage />} />
-        <Route path="/categories" element={<CategoriesPage />} />
-        <Route path="/categories/:slug" element={<CategoryDetailPage />} />
-        <Route path="/authors" element={<AuthorsPage />} />
-        <Route path="/authors/:slug" element={<AuthorDetailPage />} />
+        <Route path="/articoli" element={<ArticlesPage />} />
+        <Route path="/articoli/:slug" element={<ArticleDetailPage />} />
+        <Route path="/categorie" element={<CategoriesPage />} />
+        <Route path="/categorie/:slug" element={<CategoryDetailPage />} />
+        <Route path="/autori" element={<AuthorsPage />} />
+        <Route path="/autori/:slug" element={<AuthorDetailPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

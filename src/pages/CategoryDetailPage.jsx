@@ -38,7 +38,7 @@ export default function CategoryDetailPage() {
             <Link className="bread-pixel pixel-link" to="/">Home</Link>
           </li>
           <li className="breadcrumb-item">
-            <Link className="bread-pixel pixel-link" to="/categories">
+            <Link className="bread-pixel pixel-link" to="/categorie">
               Categorie
             </Link>
           </li>
@@ -61,7 +61,7 @@ export default function CategoryDetailPage() {
       <section>
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h2 className="pixel-title mb-0">Articoli in {category.name}</h2>
-          <Link to="/categories" className="pixel-link">Tutte le categorie ►</Link>
+          <Link to="/categorie" className="pixel-link">Tutte le categorie ►</Link>
         </div>
         {categoryArticles.length === 0 ? (
           <div className="article-card">
