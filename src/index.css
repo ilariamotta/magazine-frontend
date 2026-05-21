@@ -81,15 +81,45 @@ h6,
   padding: 0 1rem;
 }
 
+.hero-box {
+  position: relative;
+  width: 100%;
+}
+
 .hero-pixel {
   width: 100%;
-  /* max-width: 720px; */
   height: auto;
-  border: 2px solid var(--text-main);
-  box-shadow: 10px 10px 0 var(--text-main);
   display: block;
 }
 
+.hero-buttons {
+  position: absolute;
+  right: 20%;
+  top:50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-btn {
+  background-color: var(--text-main);
+  color: white;
+  border: 2px solid var(--border-dark);
+  box-shadow: 4px 4px 0 var(--neon-cyan);
+  text-decoration: none;
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 1rem 4rem;
+  min-width: 130px;
+  text-align: center;
+}
+
+.hero-btn:hover {
+  background-color: var(--neon-pink);
+  color: white;
+}
 
 /* HEADER */
 
