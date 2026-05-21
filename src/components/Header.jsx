@@ -31,20 +31,34 @@ export default function Header() {
 
   return (
     <header className="site-header text-uppercase">
-      <nav className="navbar navbar-expand-lg">
-        <div className="container d-flex align-items-center justify-content-between">
+      <nav className="navbar navbar-expand-xl">
+        <div className="container d-flex align-items-center">
+
           {/* LOGO */}
-          <Link to="/" className="ms-0"><img src="/logo.png" alt="Pixel Pop" className="site-logo me-3" /></Link>
+          <Link to="/" className="navbar-brand me-2">
+            <img src="/logo.png" alt="Pixel Pop" className="site-logo" />
+          </Link>
+
           {/* SEARCH MOBILE/TABLET */}
-          <SearchBar className="d-lg-none flex-grow-1 mx-2" />
+          <SearchBar className="d-xl-none flex-grow-1 mx-2" />
+
           {/* HAMBURGER */}
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Apri menu"
+          >
             <span className="navbar-toggler-icon"></span>
           </button>
-          {/* MENU DESKTOP / COLLAPSE */}
+
+          {/* MENU */}
           <div className="collapse navbar-collapse" id="navbarNav">
-            <div className="navbar-nav d-flex flex-column flex-lg-row align-items-lg-center gap-3 ms-lg-auto">
-              <ul className="navbar-nav">
+            <div className="d-flex flex-column flex-xl-row align-items-xl-center w-100 gap-3 ms-xl-4">
+              <ul className="navbar-nav d-flex flex-column flex-xl-row gap-xl-2">
                 {navLinks.map((link) => (
                   <li key={link.path} className="nav-item">
                     <Link to={link.path} className="nav-link">
@@ -53,10 +67,12 @@ export default function Header() {
                   </li>
                 ))}
               </ul>
+
               {/* SEARCH DESKTOP */}
-              <SearchBar className="d-none d-lg-flex ms-lg-3" />
+              <SearchBar className="d-none d-xl-flex ms-xl-auto" />
             </div>
           </div>
+
         </div>
       </nav>
     </header>
