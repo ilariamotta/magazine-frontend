@@ -12,20 +12,21 @@ export default function SearchPage() {
 
   const [articles, setArticles] = useState(null);
 
-      useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     axios
       .get(`${API_URL}/api/articles`)
-      .then((response) => {setArticles(response.data.data);})
-      .catch((error) => {console.error("Errore ricerca:", error);
+      .then((response) => { setArticles(response.data.data); })
+      .catch((error) => {
+        console.error("Errore ricerca:", error);
         setArticles([]);
       });
   }, [API_URL]);
 
-  
+
   if (!articles) {
     return <Loader text="Caricamento contenuti..." />;
   }
@@ -41,10 +42,10 @@ export default function SearchPage() {
     ${article.author?.name}
     ${article.categories?.map((category) => category.name).join(" ")}
     `.toLowerCase();
-    
+
     return articleText.includes(searchedText);
   });
-  
+
   return (
     <main className="container py-5">
       {/* BREADCRUMB */}
@@ -61,7 +62,7 @@ export default function SearchPage() {
       {/* TESTATA RICERCA */}
       <section
         className="article-card mb-5"
-        style={{borderColor: "var(--border-dark)",boxShadow: "8px 8px 0 var(--neon-cyan)",}}>
+        style={{ borderColor: "var(--border-dark)", boxShadow: "8px 8px 0 var(--neon-cyan)", }}>
         <div className="article-card-body p-4 p-lg-5">
           <h1 className="pixel-title display-4 fw-bold text-uppercase lh-1 mb-3">Risultati di ricerca</h1>
           <p className="mb-0">Hai cercato: <strong>{query}</strong></p>
@@ -90,6 +91,10 @@ export default function SearchPage() {
         )}
       </section>
       {/* FINE RISULTATI */}
+      {/* LINK TO TOP */}
+      <div className="d-flex justify-content-center mt-4">
+        <button type="button" className="pixel-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Torna su ↑</button>
+      </div>
     </main>
   );
 }

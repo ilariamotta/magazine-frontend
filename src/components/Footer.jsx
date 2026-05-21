@@ -28,7 +28,7 @@ export default function Footer() {
       path: '/videogiochi',
     },
     {
-      label: 'Animea',
+      label: 'Anime',
       path: '/anime',
     },
     {

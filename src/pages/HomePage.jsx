@@ -102,6 +102,10 @@ export default function HomePage() {
                 </section>
                 {/* FINE AUTORI */}
             </div>
+            {/* LINK TO TOP */}
+            <div className="d-flex justify-content-center mt-4">
+                <button type="button" className="pixel-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Torna su ↑</button>
+            </div>
         </>
     )
 }

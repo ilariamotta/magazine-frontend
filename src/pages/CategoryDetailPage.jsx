@@ -10,22 +10,23 @@ export default function CategoryDetailPage() {
 
   const [category, setCategory] = useState(null);
 
-      useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
 
-  useEffect(() => {axios
+  useEffect(() => {
+    axios
       .get(`${API_URL}/api/categories/${slug}`)
-      .then((response) => {setCategory(response.data.data);})
-      .catch((error) => {console.error("Errore categoria:", error);});
+      .then((response) => { setCategory(response.data.data); })
+      .catch((error) => { console.error("Errore categoria:", error); });
   }, [API_URL, slug]);
 
 
 
-    if (!category) {
-        return <Loader text="Caricamento contenuti..." />;
-    }
+  if (!category) {
+    return <Loader text="Caricamento contenuti..." />;
+  }
 
   const categoryArticles = category.articles || [];
 
@@ -51,7 +52,7 @@ export default function CategoryDetailPage() {
 
       {/* TESTATA CATEGORIA */}
       <section
-        className="article-card mb-5" style={{borderColor: "var(--border-dark)",boxShadow: `8px 8px 0 ${category.color || "var(--neon-cyan)"}`,}}>
+        className="article-card mb-5" style={{ borderColor: "var(--border-dark)", boxShadow: `8px 8px 0 ${category.color || "var(--neon-cyan)"}`, }}>
         <div className="article-card-body p-4 p-lg-5">
           <h1 className="pixel-title display-4 fw-bold text-uppercase lh-1 mb-3">{category.name}</h1>
           <p className="pixel-text fs-5 mb-0"> Tutti gli articoli pubblicati nella categoria {category.name}.</p>
@@ -76,12 +77,16 @@ export default function CategoryDetailPage() {
           <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
             {categoryArticles.map((article) => (
               <div key={article.slug} className="col">
-                <ArticleCard article={{...article, categories: [category]}}  />
+                <ArticleCard article={{ ...article, categories: [category] }} />
               </div>
             ))}
           </div>
         )}
       </section>
+      {/* LINK TO TOP */}
+      <div className="d-flex justify-content-center mt-4">
+        <button type="button" className="pixel-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Torna su ↑</button>
+      </div>
     </main>
   );
 }

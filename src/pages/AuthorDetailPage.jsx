@@ -12,29 +12,32 @@ export default function AuthorDetailPage() {
   const [articles, setArticles] = useState(null);
 
   useEffect(() => {
-  window.scrollTo(0, 0);
-}, []);
+    window.scrollTo(0, 0);
+  }, []);
 
-  useEffect(() => {axios
+  useEffect(() => {
+    axios
       .get(`${API_URL}/api/authors/${slug}`)
-      .then((response) => {setAuthor(response.data.data);})
-      .catch((error) => {console.error("Errore autore:", error);});
+      .then((response) => { setAuthor(response.data.data); })
+      .catch((error) => { console.error("Errore autore:", error); });
   }, [API_URL, slug]);
 
-  useEffect(() => {axios
+  useEffect(() => {
+    axios
       .get(`${API_URL}/api/articles`)
-      .then((response) => {setArticles(response.data.data);})
-      .catch((error) => {console.error("Errore articoli:", error);});
+      .then((response) => { setArticles(response.data.data); })
+      .catch((error) => { console.error("Errore articoli:", error); });
   }, [API_URL]);
 
 
-  
-  
-  if (!articles || !author ) {
-    return <Loader text="Caricamento contenuti..." />;}
-    
-    const authorArticles = articles.filter((article) => {return article.author?.slug === slug;});
-  const authorImageUrl = author.avatar_image ? `${API_URL}/storage/${author.avatar_image}`: "/author-placeholder.png";
+
+
+  if (!articles || !author) {
+    return <Loader text="Caricamento contenuti..." />;
+  }
+
+  const authorArticles = articles.filter((article) => { return article.author?.slug === slug; });
+  const authorImageUrl = author.avatar_image ? `${API_URL}/storage/${author.avatar_image}` : "/author-placeholder.png";
 
   return (
     <main className="container py-5">
@@ -52,7 +55,7 @@ export default function AuthorDetailPage() {
           <div className="row g-4 align-items-center">
             <div className="col-12 col-md-4 col-lg-3">
               <div className="ratio ratio-1x1 bg-warning border border-2 border-dark">
-                <img src={authorImageUrl} alt={author.name} className="pixel-card-img"/>
+                <img src={authorImageUrl} alt={author.name} className="pixel-card-img" />
               </div>
             </div>
             <div className="col-12 col-md-8 col-lg-9">
@@ -91,6 +94,11 @@ export default function AuthorDetailPage() {
           </div>
         )}
       </section>
+
+      {/* LINK TO TOP */}
+      <div className="d-flex justify-content-center mt-4">
+        <button type="button" className="pixel-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Torna su ↑</button>
+      </div>
     </main>
   );
 }
