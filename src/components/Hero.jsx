@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="hero-box">
         <img src="/hero.png" alt="Hero" className="img-fluid hero-pixel" />
         <div className="hero-buttons d-none d-lg-flex">
-          <Link to="/chi-siamo" className="hero-btn">About</Link>
+          <Link to="/chi-siamo" className="hero-btn">Su di noi</Link>
           <Link to="/autori" className="hero-btn">Autori</Link>
           <Link to="/categorie" className="hero-btn">Categorie</Link>
         </div>

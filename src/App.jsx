@@ -13,6 +13,7 @@ import AuthorsPage from "./pages/AuthorsPage";
 import AuthorDetailPage from "./pages/AuthorDetailPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import SearchPage from "./pages/SearchPage";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/autori/:slug" element={<AuthorDetailPage />} />
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/cerca" element={<SearchPage />} />
+        <Route path="/chi-siamo" element={<AboutUs />}/>
       </Routes>
       <Footer />
     </BrowserRouter>

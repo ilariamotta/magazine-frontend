@@ -27,6 +27,10 @@ export default function Header() {
       label: "Autori",
       path: "/autori",
     },
+    {
+      label: "Su di noi",
+      path: "/chi-siamo",
+    },
   ];
 
   return (
