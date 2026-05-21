@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import ArticleCard from "../components/ArticleCard";
+import Loader from "../components/Loader";
 
 export default function SearchPage() {
   const API_URL = import.meta.env.VITE_API_URL;
@@ -11,54 +12,48 @@ export default function SearchPage() {
 
   const [articles, setArticles] = useState(null);
 
+      useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
   useEffect(() => {
     axios
       .get(`${API_URL}/api/articles`)
-      .then((response) => {
-        setArticles(response.data.data);
-      })
-      .catch((error) => {
-        console.error("Errore ricerca:", error);
+      .then((response) => {setArticles(response.data.data);})
+      .catch((error) => {console.error("Errore ricerca:", error);
         setArticles([]);
       });
   }, [API_URL]);
 
+  
   if (!articles) {
-    return (
-      <main className="container py-5">
-        <p>Ricerca in corso...</p>
-      </main>
-    );
+    return <Loader text="Caricamento contenuti..." />;
   }
+
 
   const searchedText = query.toLowerCase();
 
   const filteredArticles = articles.filter((article) => {
     const articleText = `
-      ${article.title}
-      ${article.subtitle}
-      ${article.content}
-      ${article.author?.name}
-      ${article.categories?.map((category) => category.name).join(" ")}
+    ${article.title}
+    ${article.subtitle}
+    ${article.content}
+    ${article.author?.name}
+    ${article.categories?.map((category) => category.name).join(" ")}
     `.toLowerCase();
-
+    
     return articleText.includes(searchedText);
   });
-
+  
   return (
     <main className="container py-5">
       {/* BREADCRUMB */}
       <nav aria-label="breadcrumb" className="mb-4">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
-            <Link className="bread-pixel pixel-link" to="/">
-              Home
-            </Link>
+            <Link className="bread-pixel pixel-link" to="/">Home</Link>
           </li>
-
-          <li className="breadcrumb-item active bread-pixel" aria-current="page">
-            Cerca
-          </li>
+          <li className="breadcrumb-item active bread-pixel" aria-current="page">Cerca</li>
         </ol>
       </nav>
       {/* FINE BREADCRUMB */}
@@ -66,19 +61,10 @@ export default function SearchPage() {
       {/* TESTATA RICERCA */}
       <section
         className="article-card mb-5"
-        style={{
-          borderColor: "var(--border-dark)",
-          boxShadow: "8px 8px 0 var(--neon-cyan)",
-        }}
-      >
+        style={{borderColor: "var(--border-dark)",boxShadow: "8px 8px 0 var(--neon-cyan)",}}>
         <div className="article-card-body p-4 p-lg-5">
-          <h1 className="pixel-title display-4 fw-bold text-uppercase lh-1 mb-3">
-            Risultati di ricerca
-          </h1>
-
-          <p className="mb-0">
-            Hai cercato: <strong>{query}</strong>
-          </p>
+          <h1 className="pixel-title display-4 fw-bold text-uppercase lh-1 mb-3">Risultati di ricerca</h1>
+          <p className="mb-0">Hai cercato: <strong>{query}</strong></p>
         </div>
       </section>
       {/* FINE TESTATA RICERCA */}
@@ -91,12 +77,8 @@ export default function SearchPage() {
           <>
             <div className="d-flex justify-content-between align-items-center mb-4">
               <h2 className="pixel-title mb-0">Articoli trovati</h2>
-
-              <Link to="/articoli" className="pixel-link">
-                Tutti gli articoli ►
-              </Link>
+              <Link to="/articoli" className="pixel-link">Tutti gli articoli ►</Link>
             </div>
-
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
               {filteredArticles.map((article) => (
                 <div key={article.slug} className="col">

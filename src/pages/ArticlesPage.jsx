@@ -2,22 +2,22 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ArticleCard from "../components/ArticleCard";
+import Loader from "../components/Loader";
 
 
 export default function ArticlesPage() {
 
   const API_URL = import.meta.env.VITE_API_URL;
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState(null);
+
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
 
   useEffect(() => { axios.get(`${API_URL}/api/articles`).then((response) => { setArticles(response.data.data); }).catch((error) => { console.error(error); }); }, [API_URL]);
 
-  if (!articles) {
-    return (
-      <main className="container py-5">
-        <p>Caricamento degli articoli...</p>
-      </main>
-    );
-  }
+    if (!articles) {
+        return <Loader text="Caricamento contenuti..." />;}
 
   return (
     <main className="container py-5">

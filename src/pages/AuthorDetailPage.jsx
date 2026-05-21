@@ -2,13 +2,18 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ArticleCard from "../components/ArticleCard";
+import Loader from "../components/Loader";
 
 export default function AuthorDetailPage() {
   const API_URL = import.meta.env.VITE_API_URL;
   const { slug } = useParams();
 
   const [author, setAuthor] = useState(null);
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState(null);
+
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
 
   useEffect(() => {axios
       .get(`${API_URL}/api/authors/${slug}`)
@@ -23,16 +28,12 @@ export default function AuthorDetailPage() {
   }, [API_URL]);
 
 
-  const authorArticles = articles.filter((article) => {return article.author?.slug === slug;});
   
-  if (!author) {
-    return (
-      <main className="container py-5">
-        <p>Caricamento autore...</p>
-      </main>
-    );
-  }
   
+  if (!articles || !author ) {
+    return <Loader text="Caricamento contenuti..." />;}
+    
+    const authorArticles = articles.filter((article) => {return article.author?.slug === slug;});
   const authorImageUrl = author.avatar_image ? `${API_URL}/storage/${author.avatar_image}`: "/author-placeholder.png";
 
   return (

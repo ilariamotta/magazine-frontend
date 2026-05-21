@@ -2,20 +2,22 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CategoryCard from "../components/CategoryCard";
+import Loader from "../components/Loader";
 
 export default function CategoriesPage() {
   const API_URL = import.meta.env.VITE_API_URL;
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState(null);
+
+      useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
   useEffect(() => { axios.get(`${API_URL}/api/categories`).then((response) => { setCategories(response.data.data); }).catch((error) => { console.error(error); }); }, [API_URL]);
 
-  if (!categories) {
-    return (
-      <main className="container py-5">
-        <p>Caricamento delle categorie...</p>
-      </main>
-    );
-  }
+
+    if (!categories) {
+        return <Loader text="Caricamento contenuti..." />;
+    }
 
   return (
     <main className="container py-5">

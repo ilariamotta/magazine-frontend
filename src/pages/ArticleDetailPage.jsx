@@ -1,12 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, Links, useParams } from "react-router-dom";
+import Loader from "../components/Loader";
 
 export default function ArticleDetailPage() {
   const API_URL = import.meta.env.VITE_API_URL;
   const { slug } = useParams();
 
   const [article, setArticle] = useState(null);
+
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
 
   useEffect(() => {axios
       .get(`${API_URL}/api/articles/${slug}`)
@@ -15,13 +20,8 @@ export default function ArticleDetailPage() {
         console.error(error);});
   }, [API_URL, slug]);
 
-  if (!article) {
-    return (
-      <main className="container py-5">
-        <p>Caricamento articolo...</p>
-      </main>
-    );
-  }
+    if (!article) {
+        return <Loader text="Caricamento contenuti..." />;}
 
   const coverImageUrl = article.cover_image ? `${API_URL}/storage/${article.cover_image}`: "/article-placeholder.png";
   const authorImageUrl = article.author?.avatar_image ? `${API_URL}/storage/${article.author.avatar_image}`: "/author-placeholder.png";

@@ -2,12 +2,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ArticleCard from "../components/ArticleCard";
+import Loader from "../components/Loader";
 
 export default function CategoryDetailPage() {
   const API_URL = import.meta.env.VITE_API_URL;
   const { slug } = useParams();
 
   const [category, setCategory] = useState(null);
+
+      useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
 
   useEffect(() => {axios
@@ -18,13 +23,9 @@ export default function CategoryDetailPage() {
 
 
 
-  if (!category) {
-    return (
-      <main className="container py-5">
-        <p>Caricamento categoria...</p>
-      </main>
-    );
-  }
+    if (!category) {
+        return <Loader text="Caricamento contenuti..." />;
+    }
 
   const categoryArticles = category.articles || [];
 

@@ -2,22 +2,18 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import AuthorCard from "../components/AuthorCard";
+import Loader from "../components/Loader";
 
 
 export default function AuthorDetailPage() {
 
   const API_URL = import.meta.env.VITE_API_URL;
-  const [authors, setAuthors] = useState([]);
+  const [authors, setAuthors] = useState(null);
 
   useEffect(() => { axios.get(`${API_URL}/api/authors`).then((response) => { setAuthors(response.data.data); }).catch((error) => { console.error(error); }); }, [API_URL]);
 
-  if (!authors) {
-    return (
-      <main className="container py-5">
-        <p>Caricamento degli autori...</p>
-      </main>
-    );
-  }
+    if (!authors) {
+        return <Loader text="Caricamento contenuti..." />;}
 
 
   return (
