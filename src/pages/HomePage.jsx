@@ -5,6 +5,7 @@ import ArticleCard from "../components/ArticleCard";
 import CategoryCard from "../components/CategoryCard";
 import AuthorCard from "../components/AuthorCard";
 import Hero from "../components/Hero";
+import { useNavigate } from "react-router-dom";
 
 
 export default function HomePage() {
@@ -32,7 +33,7 @@ export default function HomePage() {
             <section className="mt-5" style={{ padding: "30px", border: "3px solid var(--text-main)", boxShadow: "10px 10px 0 var(--text-main)"}}>
                 <div className="row g-4 align-items-center">
                 <div className="col-12 col-lg-5">
-                    <span className="mb-3 bg-black text-light" style={{ padding: "0.25rem 0.6rem", border: "2px solid var(--border-dark)", fontFamily: "2px solid var(--border-dark)"}}>
+                    <span className="mb-3 bg-black text-light" style={{ padding: "0.25rem 0.6rem", border: "2px solid var(--border-dark)"}}>
                         In evidenza</span>
                     <h1 className="pixel-title pt-4">{firstEventArticle.title}</h1>
                     <p className="pixel-text">{firstEventArticle.subtitle}</p>
@@ -70,7 +71,7 @@ export default function HomePage() {
                 </div>
                 <div className="row row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-2">
                 {categories.slice(0,4).map((category)=>
-                <div key={category.key}className="col">
+                <div key={category.slug}className="col">
                     <CategoryCard category={category}/>
                 </div>)}
                 </div>

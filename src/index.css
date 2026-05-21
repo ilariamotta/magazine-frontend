@@ -383,3 +383,26 @@ h6,
 .breadcrumb-item:hover {
  transform: rotate(3deg);
 }
+
+/* SEARCH BAR */
+.search-bar {
+  align-items: center;
+}
+
+.search-input {
+  border-radius: 999px;
+  border: 2px solid var(--border-dark);
+  padding: 0.45rem 1rem;
+  background-color: var(--bg-card);
+  color: var(--text-main);
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 0.15rem var(--neon-cyan);
+  border-color: var(--border-dark);
+}
+
+.search-bar .pixel-btn {
+  border-radius: 999px;
+  white-space: nowrap;
+}
